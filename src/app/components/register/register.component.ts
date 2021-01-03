@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
     private _userService: UserService
   ){
     this.msgSaveSuccess = 'El registro se ha completado correctamente, ';
-    this.msgSaveError = 'El registro no se ha completado'
+    this.msgSaveError = 'El registro no se ha completado';
     this.page_title = 'Registrate';
     this.user = new User('','','','','','','ROLE_USER');
   }
