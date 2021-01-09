@@ -1,6 +1,7 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { UserService } from './services/user.service';
+import { global } from "./services/global";
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { UserService } from './services/user.service';
 export class AppComponent implements OnInit, DoCheck {
   public identity;
   public token;
+  public url;
 
   constructor(
     private _userService: UserService,
@@ -19,14 +21,13 @@ export class AppComponent implements OnInit, DoCheck {
   ){
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
+    this.url = global.url;
   }
   ngDoCheck(): void {
     this.identity = this._userService.getIdentity();
   }
 
   ngOnInit() {
-    console.log(this.identity);
-    console.log(this.token);
   }
 
   logout() {

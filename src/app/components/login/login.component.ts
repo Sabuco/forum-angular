@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   public msgLoginError: string;
 
   constructor(
-    private _userService:UserService,
+    private _userService: UserService,
     private _router: Router,
     private _route: ActivatedRoute
   ) {
