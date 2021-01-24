@@ -46,4 +46,10 @@ export class TopicService {
         return this._http.delete(this.url + 'topic/' + id, {headers:headers});
 
     }
+
+    getTopics(page = 1):Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.get(this.url + 'topics/' + page, {headers:headers});
+    }
 }
