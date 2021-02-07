@@ -31,7 +31,7 @@ export class TopicsComponent implements OnInit {
     this._route.params.subscribe(params => {
       var page =+ params['page'];
 
-      if(!page || page == null || page == undefined) {
+      if(!page) {
         page = 1;
         this.prevPage = 1;
         this.nextPage = 2;

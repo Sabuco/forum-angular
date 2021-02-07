@@ -17,5 +17,58 @@
             <ngx-highlight-js lang="{{topic.lang}}" code="{{topic.code}}"></ngx-highlight-js>
         </p>
     </div>
+
+    <div class="clearfix"></div>
+
+    <div id="comment-box" class="mt-2 clo-lg-9">
+        <h3>Comentarios</h3>
+        <hr>
+
+        <ul class="list-group list-comments">
+            <li class="list-group-item" *ngFor="let comment of topic.comments">
+                <div class="avatar-mask float-left mr-3">
+                    <img src="{{ url + 'avatar/' + comment.user.image}}" class="avatar-nav">
+                </div>
+                <span class="badge badge-primary" *ngIf="topic.lang">
+                    {{ comment.user.name + ' ' + comment.user.surname }}
+                </span>
+                <span class="badge badge-light float-right">
+                    {{comment.date | amLocale: 'es' | amTimeAgo }}
+                </span>
+                <span class="d-block">
+                    {{ comment.content }}
+                </span>
+                <button (click)="deleteComment(comment._id)" class="btn btn-sm btn-danger float-right" *ngIf="identity._id == comment.user._id">Borrar</button>
+            </li>
+        </ul>
+
+        <div class="alert alert-success mt-3" *ngIf="status == 'success'">
+            El comentario se ha añadido correctamente
+        </div>
     
+        <div class="alert alert-danger mt-3" *ngIf="status == 'error'">
+            El comentario no se ha añadido
+        </div>
+
+        <div class="alert alert-success mt-3" *ngIf="status == 'successDelete'">
+            El comentario se ha borrado correctamente
+        </div>
+    
+        <div class="alert alert-danger mt-3" *ngIf="status == 'errorDelete'">
+            El comentario no se ha borrado
+        </div>
+        <hr>
+        <form #formComment="ngForm" (ngSubmit)="onSubmit(formComment)" *ngIf="identity">
+            <div class="form-group mb-5">
+                <label for="content">Pon tu comentario:</label>
+                <textarea class="form-control" name="content" #content="ngModel" [(ngModel)]="comment.content" required></textarea>
+    
+                <small *ngIf="!content.valid && content.touched" class="invalid-feedback d-block">
+                    El contenido no es válido
+                </small>
+            </div>
+            <input class="btn btn-success" type="submit" value="Comentar" [disabled]="formComment.invalid" />
+        </form>
+
+    </div>
 </div>
