@@ -1,0 +1,42 @@
+<div class="col-lg-12 mt-3">
+    <h1>{{page_title}}</h1>
+    <hr>
+
+    <ul class="list-group list-users">
+        <li class="list-group-item" *ngFor="let user of users">
+            <!-- imagen -->
+            <div class="avatar-mask-list float-left mr-3" *ngIf="user.image">
+                <img src="{{ url + 'avatar/' + user.image}}" class="avatar-nav">
+            </div>
+            <h4 class="d-inline-block">
+                <a [routerLink]="['/perfil', user._id]">{{user.name + ' ' + user.surname}}</a>
+            </h4>
+            
+            <div class="mb-2 mt-2">
+                <a [routerLink]="['/perfil', user._id]" class="btn btn-sm btn-primary d-block mx-auto float-right">Ver perfil</a>
+            </div>
+        </li>
+    </ul>
+
+    <div class="clearfix"></div>
+
+    
+        <ul class="pagination mt-4">
+          <li class="page-item">
+            <a class="page-link" [routerLink]="['/temas', prevPage]" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          <li class="page-item" *ngFor="let num of numberPages">
+              <a class="page-link" [routerLink]="['/temas', num]">{{ num }}</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" [routerLink]="['/temas', nextPage]" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>
+      
+</div>

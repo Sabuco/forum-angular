@@ -9,3 +9,14 @@
 .avatar-mask img{
     height: 40px;
 }
+
+.avatar-mask-list{
+    width: 60px;
+    height: 60px;
+    border-radius: 900px;
+    overflow: hidden;
+}
+
+.avatar-mask-list img{
+    height: 60px;
+}
