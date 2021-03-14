@@ -1,9 +1,12 @@
-<div class="col-lg-12 mt-3" *ngIf="!topics">
-  <img src="/assets/loading.gif" />
+<div class="col-lg-12 mt-3" *ngIf="!user || !topics">
+    <img src="/assets/loading.gif" />
 </div>
 
-<div class="col-lg-12 mt-3" *ngIf="topics">
-    <h1>{{page_title}}</h1>
+<div class="col-lg-12 mt-3" *ngIf="user && topics">
+    <div class="avatar-mask-list float-left mr-3" *ngIf="user.image">
+        <img src="{{ url + 'avatar/' + user.image}}" class="avatar-nav">
+    </div>
+    <h1>{{user.name + ' ' + user.surname}}</h1>
     <hr>
 
     <ul class="list-group lsit-topics">
@@ -15,9 +18,6 @@
                 {{topic.date | amLocale: 'es' | amTimeAgo }}
             </span>
             <div class="mb-2 mt-2">
-                <span class="badge badge-light ml-2">
-                    {{topic.user.name + ' ' + topic.user.surname}}
-                </span>
                 <a [routerLink]="['/tema', topic._id]" class="btn btn-sm btn-primary d-block mx-auto float-right">Leer</a>
             </div>
         </li>
