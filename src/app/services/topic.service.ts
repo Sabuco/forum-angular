@@ -52,4 +52,10 @@ export class TopicService {
 
         return this._http.get(this.url + 'topics/' + page, {headers:headers});
     }
+
+    search(search):Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.get(this.url + 'search/' + search, {headers:headers});
+    }
 }
