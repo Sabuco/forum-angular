@@ -5,9 +5,9 @@
         <hr class="my-4">
         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
         <p class="lead">
-          <a class="btn btn-primary btn-lg mr-3" href="#" role="button">Ver temas</a>
-          <a class="btn btn-primary btn-lg mr-3" href="#" role="button">Ver compañeros</a>
-          <a class="btn btn-primary btn-lg mr-3" href="#" role="button">Añadir nuevo tema</a>
+          <a class="btn btn-primary btn-lg mr-3" [routerLink]="['/temas']" role="button">Ver temas</a>
+          <a class="btn btn-primary btn-lg mr-3" [routerLink]="['/usuarios']" role="button">Ver compañeros</a>
+          <a class="btn btn-primary btn-lg mr-3" [routerLink]="['/panel/crear']" role="button">Añadir nuevo tema</a>
         </p>
       </div>
 </div>

@@ -38,7 +38,7 @@
                 <span class="d-block">
                     {{ comment.content }}
                 </span>
-                <button (click)="deleteComment(comment._id)" class="btn btn-sm btn-danger float-right" *ngIf="identity._id == comment.user._id">Borrar</button>
+                <button (click)="deleteComment(comment._id)" class="btn btn-sm btn-danger float-right" *ngIf="identity._id && identity._id == comment.user._id">Borrar</button>
             </li>
         </ul>
 

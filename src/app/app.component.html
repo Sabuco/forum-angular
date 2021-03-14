@@ -38,7 +38,7 @@
           <a class="nav-link" [routerLink]="['/login']">Iniciar sesión</a>
         </li>
 
-        <li class="nav-item" *ngIf="identity">
+        <li class="nav-item" *ngIf="identity && identity.image">
           <div class="avatar-mask">
             <img src="{{ url + 'avatar/' + identity.image}}" class="avatar-nav">
           </div>
